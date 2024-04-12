@@ -12,12 +12,11 @@ import {
   JwtDto,
   JwtPayload,
   EmailPayload,
-} from "@common/types/authorization";
-import { SecurityConfig } from "@common/configs/config.interface";
+} from "common/types/authorization";
+import { SecurityConfig } from "common/configs/config.interface";
 import { pick } from "lodash";
-import { User } from "@user/user.entity";
-import { UserService } from "@user/user.service";
-import { UserRepository } from "@user/user.repository";
+import { User } from "user/user.entity";
+import { UserRepository } from "user/user.repository";
 
 const sanitizePayload = (payload: JwtPayload) => {
   return pick(payload, "type", "id", "email", "name", "role");

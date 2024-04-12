@@ -11,10 +11,10 @@ import {
 } from "@nestjs/common";
 import { SkipThrottle, Throttle } from "@nestjs/throttler";
 import { ApiOperation, ApiResponse } from "@nestjs/swagger";
-import { Roles } from "@common/decorators/roles.decorator";
-import { RolesGuard } from "@common/guards/roles.guard";
-import { ApiResponseHelper } from "@common/helpers/api-response.helper";
-import { Authorization } from "@common/types/authorization";
+import { RolesGuard } from "../common/guards/roles.guard";
+import { ApiResponseHelper } from "common/helpers/api-response.helper";
+import { Authorization } from "common/types/authorization";
+import { Roles } from "common/decorators/roles.decorator";
 import { CatsService } from "./cats.service";
 import { CreateCatDto } from "./dto/create-cat.dto";
 import { Cat } from "./cats.entity";
@@ -45,7 +45,7 @@ export class CatsController {
   @SkipThrottle()
   @Get(":id")
   findOne(@Param("id") id: string) {
-    return this.catsService.findById(id);
+    return this.catsService.findById(+id);
   }
 
   @ApiOperation({ description: `Cat admin`, tags: ["Admin"] })
@@ -54,7 +54,7 @@ export class CatsController {
   @Put(":id")
   @Roles(["admin"])
   update(@Param("id") id: string, @Body() data: CreateCatDto) {
-    return this.catsService.update(id, data);
+    return this.catsService.update(+id, data);
   }
 
   @ApiOperation({ description: `Cat creation`, tags: ["Admin"] })
@@ -63,6 +63,6 @@ export class CatsController {
   @Delete(":id")
   @Roles(["admin"])
   delete(@Param("id") id: string) {
-    return this.catsService.delete(id);
+    return this.catsService.delete(+id);
   }
 }

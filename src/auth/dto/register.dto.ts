@@ -5,10 +5,10 @@ import {
   MinLength,
 } from "class-validator";
 import {
-  USERNAME_MIN_SIZE,
-  USERNAME_MAX_SIZE,
   PASSWORD_OPTIONS,
-} from "src/constants";
+  USERNAME_MAX_SIZE,
+  USERNAME_MIN_SIZE,
+} from "common/utils/constants";
 
 export class RegisterDto {
   // @IsValidUsername()

@@ -1,18 +1,18 @@
 import { Module } from "@nestjs/common";
-import { CoreModule } from "@core/core.module";
-import { AuthModule } from "@auth/auth.module";
-import { UserModule } from "@user/user.module";
-import { CatsModule } from "@cats/cats.module";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { ThrottlerModule } from "@nestjs/throttler";
+import { JwtModule } from "@nestjs/jwt";
+import { CoreModule } from "core/core.module";
+import { AuthModule } from "auth/auth.module";
+import { UserModule } from "user/user.module";
+import { CatsModule } from "cats/cats.module";
 import {
   SecurityConfig,
   ThrottleConfig,
-} from "@common/configs/config.interface";
-import databaseConfig from "@common/configs/database.config";
-import config from "@common/configs/config";
-import { JwtModule } from "@nestjs/jwt";
+} from "common/configs/config.interface";
+import databaseConfig from "common/configs/database.config";
+import config from "common/configs/config";
 
 @Module({
   imports: [

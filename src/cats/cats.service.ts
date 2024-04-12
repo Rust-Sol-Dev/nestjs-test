@@ -11,7 +11,7 @@ export class CatsService {
     this.logger = new Logger(CatsService.name);
   }
 
-  async findById(id: string): Promise<Cat> {
+  async findById(id: number): Promise<Cat> {
     return this.catsRepository.findOne({ where: { id } });
   }
 
@@ -19,7 +19,7 @@ export class CatsService {
     return this.catsRepository.find();
   }
 
-  async update(id: string, body: CreateCatDto): Promise<Cat> {
+  async update(id: number, body: CreateCatDto): Promise<Cat> {
     await this.catsRepository.update(
       { id },
       this.catsRepository.create({ ...body })
@@ -38,7 +38,7 @@ export class CatsService {
     return this.findById(cat.id);
   }
 
-  async delete(id: string): Promise<Cat> {
+  async delete(id: number): Promise<Cat> {
     const cat = await this.findById(id);
     await this.catsRepository.delete(id);
 

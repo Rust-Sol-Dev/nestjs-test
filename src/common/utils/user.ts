@@ -1,6 +1,6 @@
 import { BadRequestException } from "@nestjs/common";
 import { maxLength, minLength, isEmail } from "class-validator";
-import { USERNAME_MAX_SIZE, USERNAME_MIN_SIZE } from "src/constants";
+import { USERNAME_MAX_SIZE, USERNAME_MIN_SIZE } from "common/utils/constants";
 
 export function validateName(name: string) {
   if (typeof name !== "string") {

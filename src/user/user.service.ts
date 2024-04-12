@@ -3,10 +3,10 @@ import { BadRequestException, Injectable, Logger } from "@nestjs/common";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { User } from "./user.entity";
 import { UserRepository } from "./user.repository";
-import { LoginDto } from "@auth/dto/login.dto";
-import { RegisterDto } from "@auth/dto/register.dto";
-import { PasswordService } from "@auth/password.service";
-import { validateEmail, validateName } from "@common/utils/user";
+import { LoginDto } from "auth/dto/login.dto";
+import { RegisterDto } from "auth/dto/register.dto";
+import { PasswordService } from "auth/password.service";
+import { validateEmail, validateName } from "common/utils/user";
 import { isEmail } from "class-validator";
 
 @Injectable()

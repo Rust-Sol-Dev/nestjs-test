@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsEmail, IsOptional, MaxLength, MinLength } from "class-validator";
-import { USERNAME_MAX_SIZE, USERNAME_MIN_SIZE } from "src/constants";
+import { USERNAME_MAX_SIZE, USERNAME_MIN_SIZE } from "common/utils/constants";
 
 export class UpdateUserDto {
   @ApiProperty({

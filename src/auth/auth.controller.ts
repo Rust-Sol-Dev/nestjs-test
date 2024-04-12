@@ -12,8 +12,8 @@ import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { AuthService } from "./auth.service";
 import { SkipThrottle, Throttle, ThrottlerGuard } from "@nestjs/throttler";
 import { UserService } from "../user/user.service";
-import { ApiResponseHelper } from "@common/helpers/api-response.helper";
-import { Authorization } from "@common/types/authorization";
+import { ApiResponseHelper } from "common/helpers/api-response.helper";
+import { Authorization } from "common/types/authorization";
 import { RegisterDto } from "./dto/register.dto";
 import { LoginDto } from "./dto/login.dto";
 @UseGuards(ThrottlerGuard)

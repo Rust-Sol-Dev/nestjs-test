@@ -9,16 +9,10 @@
     "target": "ES2021",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": "src/",
     "incremental": true,
     "skipLibCheck": true,
-    "paths": {
-      "@common/*": ["src/common/*"],
-      "@auth/*": ["src/auth/*"],
-      "@user/*": ["src/user/*"],
-      "@core/*": ["src/core/*"],
-      "@cats/*": ["src/cats/*"]
-    }
+    "esModuleInterop": true
   },
   "include": ["src/**/*"]
 }

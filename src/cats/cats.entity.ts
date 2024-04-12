@@ -6,6 +6,7 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   UpdateDateColumn,
+  PrimaryGeneratedColumn,
 } from "typeorm";
 
 export enum Role {
@@ -15,9 +16,9 @@ export enum Role {
 
 @Entity("cat")
 export class Cat {
-  @ApiProperty({ description: `Unique uuid`, maximum: 36 })
-  @Column({ type: "varchar", nullable: false, length: 36 })
-  id: string;
+  @Exclude({ toPlainOnly: true })
+  @PrimaryGeneratedColumn({ name: "id" })
+  id: number;
 
   @ApiProperty({ description: "Cat name", maximum: 128, required: true })
   @Column({ type: "varchar", nullable: false, length: 128 })
@@ -44,8 +45,4 @@ export class Cat {
   })
   @UpdateDateColumn()
   updatedAt: Date;
-
-  @Exclude({ toPlainOnly: true })
-  @DeleteDateColumn()
-  deletedAt: Date;
 }
